@@ -1,0 +1,28 @@
+---
+all:
+   children:
+      switches:
+         hosts:
+            S1:
+               loopback: 10.1.1.1
+               ntp: ntp.alt.adeboye.com
+            S2:
+               loopback: 10.2.2.2
+        
+      west:
+         hosts:
+            S1:
+         vars: 
+            ntp: ntp.west.adeboye.com
+      east:
+         hosts:
+            S2:
+         vars: 
+            ntp: ntp.east.adeboye.com
+
+
+   vars:
+      ansible_connection: ansible.netcommon.network_cli
+      ansible_network_os: cisco.nxos.nxos
+      ansible_user: adeboye
+      ansible_password: cisco
